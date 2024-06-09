@@ -56,7 +56,7 @@ body {
   border-radius: 0.9rem;
 
   position: relative;
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 .loader {

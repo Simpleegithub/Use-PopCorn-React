@@ -14,7 +14,7 @@ import { WatchedList } from "./Components/WatchedList";
 export const key = "fdfdc245";
 
 export const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+  arr?.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 
 
@@ -32,11 +32,10 @@ export default function App() {
   const { movies, isloading, error } = useMovies(query, handlecloseMovie);
 
 
-  const [watched, setWatched] = useState(function () {
+  const [watched, setWatched] = useState(() => {
     const storedvalue = localStorage.getItem("watched");
-    return JSON.parse(storedvalue);
+    return storedvalue ? JSON.parse(storedvalue) : [];
   });
-
 
 
   function handleselectedMovie(id) {
@@ -53,7 +52,7 @@ export default function App() {
   }
 
   function handledeletewatched(id) {
-    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
+    setWatched((watched) => watched?.filter((movie) => movie.imdbID !== id));
   }
 
   useEffect(

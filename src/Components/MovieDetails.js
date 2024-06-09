@@ -24,8 +24,8 @@ export function MovieDetails({
     [userRating]
   );
 
-  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedid);
-  const watchedrating = watched.find(
+  const isWatched = watched?.map((movie) => movie.imdbID).includes(selectedid);
+  const watchedrating = watched?.find(
     (movie) => movie.imdbID === selectedid
   )?.userRating;
 
