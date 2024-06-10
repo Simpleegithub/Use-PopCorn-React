@@ -17,7 +17,7 @@ export function useMovies(query,handlecloseMovie){
               seterror("");
     
               const resp = await fetch(
-                ` http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s=${query}`,{signal:controller.signal}
+                ` https://www.omdbapi.com/?i=tt3896198&apikey=${key}&s=${query}`,{signal:controller.signal}
               );
               console.log(query);
     
